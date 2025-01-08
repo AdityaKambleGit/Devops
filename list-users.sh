@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#Author: Aditya
+#Date: January 8th
+#Function: To get the list of user have access to a particular repository
+
+helper()
+
 # GitHub API URL
 API_URL="https://api.github.com"
 
@@ -18,6 +24,13 @@ function github_api_get {
 
     # Send a GET request to the GitHub API with authentication
     curl -s -u "${USERNAME}:${TOKEN}" "$url"
+}
+
+# Function to check if correct arguments are passed to access the repository
+function helper{
+expected_cmd_args=2
+if [ $# -ne $expected_cmd_args]; then
+echo "please execute the script with required cmd args"
 }
 
 # Function to list users with read access to the repository
